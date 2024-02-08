@@ -1,0 +1,94 @@
+.subheader {
+    background: url(../images/purple-background.png);
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center;
+    width: 100%;
+    padding: 30px 0;
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+
+        .columnOne {
+            text-align: center;
+            width: 100%;
+
+            > h1 {
+                color: white;
+            }
+
+            > ul {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                > li a {
+                    color: white;
+                    font-size: 20px;
+                }
+
+                > span {
+                    padding: 0 10px;
+
+                    > i {
+                        color: white;
+                        opacity: .4;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.result {
+    display: flex;
+    flex-wrap: wrap;
+    margin-block: 40px;
+
+    .post {
+        margin-inline: 25px;
+        margin-block: 10px;
+        width: 450px;
+        height: 320px;
+        background-color: #ffffff;
+        border: 2px solid #333333;
+        box-shadow: 5px 5px 5px #888888;
+        border-radius: 10px;
+
+        h2 {
+            a {
+                text-decoration: none;
+                color: #d14891;
+                margin-left: 10px;
+            }
+
+            a:hover {
+                color: black;
+            }
+        }
+
+        h4 {
+            word-wrap: break-word;
+            margin-top: 50px;
+            padding: 10px;
+        }
+
+        a {
+            margin-top: 150px;
+            text-decoration: none;
+            color: white;
+            margin-left: 9%;
+
+            button {
+                width: 80%;
+                text-align: center;
+                padding: 5px;
+                margin-top: 50px;
+                border-radius: 8px;
+                background: #984796 ;
+            }
+        }
+    }
+}
