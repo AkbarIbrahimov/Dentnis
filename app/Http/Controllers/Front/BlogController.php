@@ -48,7 +48,7 @@ class BlogController extends Controller
     public function contact()
     {
         $correct="";
-        return view('Front.pages.contact',compact('correct  '));
+        return view('Front.pages.contact',compact('correct'));
     }
     public function contactInfo(Request$request)
     {

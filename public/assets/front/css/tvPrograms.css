@@ -48,3 +48,45 @@
 .container-article .video-title b {
     font-size: 16px;
 }
+@media only screen and (max-width: 768px) {
+    .under-nav {
+        height: auto;
+        padding: 20px 0;
+    }
+
+    .under-nav .content .top-title {
+        font-size: 28px;
+    }
+
+    .under-nav .content .bottom-title {
+        font-size: 18px;
+    }
+
+    .under-nav .content .bottom-title .bottom-left,
+    .under-nav .content .bottom-title .bottom-right {
+        padding: 0 10px;
+    }
+
+    .container-article .video-title b {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .under-nav .content .top-title {
+        font-size: 24px;
+    }
+
+    .under-nav .content .bottom-title {
+        font-size: 16px;
+    }
+
+    .under-nav .content .bottom-title .bottom-left,
+    .under-nav .content .bottom-title .bottom-right {
+        padding: 0 5px;
+    }
+
+    .container-article .video-title b {
+        font-size: 12px;
+    }
+}

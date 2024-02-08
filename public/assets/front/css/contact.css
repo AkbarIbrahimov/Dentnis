@@ -172,3 +172,73 @@
         display: block;
     }
 }
+@media only screen and (max-width: 768px) {
+    .contact .subheader {
+        padding: 20px 0;
+    }
+
+    .contact .section1,
+    .contact .section2 {
+        width: 100%;
+        margin: 30px auto;
+        flex-direction: column;
+    }
+
+    .contact .section1 .row1,
+    .contact .section1 .row2,
+    .contact .section2 .row1,
+    .contact .section2 .row2 {
+        width: 100%;
+    }
+
+    .contact .section1 .row1 > form > div > input,
+    .contact .section1 .row1 > form > input,
+    .contact .section1 .row1 > form > textarea,
+    .contact .section1 .row1 > form > button {
+        width: 100%;
+    }
+
+    .contact .section2 > span {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .contact .subheader .container .columnOne > h1 {
+        font-size: 24px;
+    }
+
+    .contact .subheader .container .columnOne > ul {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .contact .section1,
+    .contact .section2 {
+        padding: 60px 0 20px 0;
+    }
+
+    .contact .section1 .row1,
+    .contact .section1 .row2,
+    .contact .section2 .row1,
+    .contact .section2 .row2 {
+        padding: 30px 20px;
+    }
+
+    .contact .section1 .row1 > form > div > input,
+    .contact .section1 .row1 > form > input,
+    .contact .section1 .row1 > form > textarea,
+    .contact .section1 .row1 > form > button {
+        margin-bottom: 20px;
+    }
+
+    .contact .section2 > span {
+        width: 100%;
+    }
+
+    .contact .section2 .row1,
+    .contact .section2 .row2 {
+        width: 100%;
+    }
+}

@@ -92,3 +92,72 @@
         }
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .subheader {
+        padding: 20px 0;
+    }
+
+    .subheader .container {
+        width: 90%;
+    }
+
+    .subheader .container .columnOne > h1 {
+        font-size: 24px;
+    }
+
+    .subheader .container .columnOne > ul {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .result .post {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .result .post h4 {
+        margin-top: 20px;
+    }
+
+    .result .post a {
+        margin-top: 100px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .subheader .container .columnOne > h1 {
+        font-size: 20px;
+    }
+
+    .subheader .container .columnOne > ul {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .result .post {
+        width: 100%;
+        margin: 10px 0;
+        height: auto;
+    }
+
+    .result .post h2 {
+        font-size: 20px;
+    }
+
+    .result .post h4 {
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    .result .post a {
+        margin-top: 20px;
+    }
+
+    .result .post a button {
+        margin-top: 20px;
+        width: 70%;
+    }
+}
