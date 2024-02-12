@@ -1,7 +1,4 @@
 @extends('Front.Layouts.front')
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
 @section('content')
     <div class="all">
         <div class="under-nav">
@@ -34,7 +31,7 @@
                         <div class="card-body">
                             @foreach($blog->translations->where('language_id',$languageId) as $translation)
                             <h3 class="card-title">{{$translation->title}}</h3>
-                            <p class="card-text"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dolores earum, eius eum inventore molestiae nihil officia optio repellendus saepe, sed sit soluta vitae. Accusantium beatae et ipsam tempora voluptate?</span></p>
+                            <p class="card-text"><span>{{ Str::limit($translation->description,100) }}</span></p>
                             <a href="#" class="btn btn-primary">Devamını Oku</a>
                             @endforeach
                         </div>

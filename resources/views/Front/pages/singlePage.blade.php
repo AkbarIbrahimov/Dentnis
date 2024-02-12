@@ -20,7 +20,6 @@
         </div>
         <div class="container">
             @if($blogTranslation = $blog->translations->where('language.lang', $currentLocale)->first())
-                <h2 class="image-title">{{$blogTranslation->title}}</h2>
                 <p>{!! $blogTranslation->description !!}</p>
             @else
                 <h2 class="image-title">Translation Not Available</h2>
@@ -31,57 +30,21 @@
 
 
 
-        <div class="comment">
-            <h3>Add a comment</h3>
-            <p>Your email address will not be shared. All fields marked with an * are required</p>
-
-            <form id="comment-form">
-                <label for="comment">Comment *</label>
-                <textarea id="comment" name="comment" required></textarea>
-
-                <div class="comment-input action='#' method='post' onsubmit='event.preventDefault()';">
-                    <div>
-                        <label for="name">Name *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div>
-                        <label for="email">Email address *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                </div>
-
-                <div class="checkbox-group">
-                    <input type="checkbox" id="save-info" name="saveInfo">
-                    <label for="save-info">Remember me</label>
-
-                    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-                    <script>
-                        function onSubmit(token) {
-                            document.getElementById("comment-form").submit();
-                        }
-                    </script>
-                    <div class="g-recaptcha" data-sitekey="SITENİZİN_SITE_KEY_GİRİN"></div>
-                </div>
-
-                <button type="submit" onclick="grecaptcha.execute()">Send</button>
-            </form>
-
-        </div>
         <div class="others-section">
             <h1>Other articles</h1>
             <div class="cols">
-                <div class="col-1">
-                    <img src="{{asset('assets/front/images/img.png')}}" alt="">
-                    <p class="article-title">Article's title</p>
-                </div>
-                <div class="col-2">
-                    <img src="{{asset('assets/front/images/img.png')}}" alt="">
-                    <p class="article-title">Article's title</p>
-                </div>
-                <div class="col-3">
-                    <img src="{{asset('assets/front/images/img.png')}}" alt="">
-                    <p class="article-title">Article's title</p>
-                </div>
+                @php
+                    $blogs1=\App\Models\Blog::rand(3)->get();
+                @endphp
+                @foreach($blogs1 as $blog)
+                    <div class="col-1">
+                        <a href="{{route('front.singlePage',['slug'=>$blog->slug])}}">
+                            <img src="{{asset("storage/$blog->image")}}" alt="">
+                            <p class="article-title">{{$blog->translations->first()->title}}</p>
+                        </a>
+                    </div>
+                @endforeach
+
             </div>
         </div>
         <div class="sub-footer">

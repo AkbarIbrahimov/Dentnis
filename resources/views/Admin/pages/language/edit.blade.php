@@ -11,7 +11,7 @@
             @enderror
             <label for="itemImg">Image:</label>
             <input type="file" id="itemImg" name="itemImg">
-            <button type="submit">Create</button>
+            <button type="submit" onclick="this.disabled=true;this.form.submit();">Edit Language</button>
         </form>
     </div>
     <!-- Include Bootstrap JS and Popper.js (required for Bootstrap) -->

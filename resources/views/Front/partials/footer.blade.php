@@ -9,8 +9,24 @@
             $language=\App\Models\Language::where('lang',$currentLocale)->first();
             $languageId=$language->id;
         @endphp
-        <h2>Diş Estetiği ile ilgili sorunlarınız mı var?</h2>
-        <a>Contact us</a>
+        <h2>
+            @if($languageId==1)
+                Diş Estetiği ile ilgili sorunlarınız mı var?
+            @elseif($languageId==2)
+                Do you have problems with Dental Aesthetics?
+            @elseif($languageId==3)
+                Есть ли у вас проблемы с эстетической стоматологией?
+            @endif
+        </h2>
+        <a href="{{route('front.about')}}">
+            @if($languageId==1)
+                Bize ulaşın
+            @elseif($languageId==2)
+                Contact us
+            @elseif($languageId==3)
+                связаться с нами
+            @endif
+        </a>
     </div>
     <div class="bottom-footer">
         <div class="upper">

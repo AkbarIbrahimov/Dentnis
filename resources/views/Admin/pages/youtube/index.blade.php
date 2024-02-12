@@ -13,6 +13,7 @@
                 <th>Edit</th>
                 <th>Id</th>
                 <th>Url</th>
+                <th>Status</th>
                 <th>Start_date</th>
                 <th>Delete</th>
             </tr>
@@ -22,12 +23,19 @@
                 <td><a href="{{route('admin.youtubeEditView',['id'=>$youtube->id])}}"><i class="fa-duotone fa-pen-nib"></i></a></td>
                 <td>{{$youtube->id}}</td>
                 <td>{{$youtube->url}}</td>
+                <td>{{$youtube->status}}</td>
                 <td>{{$youtube->created_at?$youtube->created_at->format('Y/m/d'):''}}</td>
-                <td ><a href="{{route('admin.youtubeDelete',['id'=>$youtube->id])}}"><i class="fa-duotone fa-trash"></i></a></td>
+                <td ><a href="{{route('admin.youtubeDelete',['id'=>$youtube->id])}}" onclick="return confirmDelete();"
+                    ><i class="fa-duotone fa-trash"></i></a></td>
                 </tbody>
             @endforeach
 
         </table>
     </div>
+    <script>
+        function confirmDelete() {
+            return confirm("Bu Youtube yazısını silmək istədiyinizə əminsiniz?");
+        }
+    </script>
 
 @endsection

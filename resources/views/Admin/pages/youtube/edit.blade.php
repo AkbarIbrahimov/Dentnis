@@ -5,11 +5,39 @@
         <form action="{{route('admin.youtubeEdit',['id'=>$youtube->id])}}" method="post" enctype="multipart/form-data">
             @csrf
             <label for="url">Url:</label>
-            <input type="text" class="form-control" id="url" name="url">
+            <input type="text" class="form-control" id="url" name="url" value="{{$youtube->url}}">
             @error('$lang')
             <span class="text-danger">{{$message}}</span>
             @enderror
-            <button type="submit">Create</button>
+            <label for="status">Status:</label>
+            @if($youtube->status == 'active')
+                <select class="form-select" id="status" name="status">
+                    <option value="active" {{$youtube->status == 'active' ? 'selected' : ''}}>Active</option>
+                    <option value="inactive" {{$youtube->status == 'inactive' ? 'selected' : ''}}>Inactive</option>
+                </select>
+            @else
+                @php
+                    $youtubes = \App\Models\Youtubes::get();
+                    $activeCount = 0;
+                @endphp
+
+                @foreach ($youtubes as $youtube)
+                    @if ($youtube->status === 'active')
+                        @php
+                            $activeCount++;
+                        @endphp
+                    @endif
+                @endforeach
+
+                <select class="form-select" id="status" name="status">
+                    @if ($activeCount === 1)
+                    @else
+                        <option value="active">Active</option>
+                    @endif
+                    <option value="inactive">Inactive</option>
+                </select>
+            @endif
+            <button type="submit" onclick="this.disabled=true;this.form.submit();">Edit Youtube</button>
         </form>
     </div>
     <!-- Include Bootstrap JS and Popper.js (required for Bootstrap) -->

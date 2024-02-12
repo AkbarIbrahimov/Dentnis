@@ -35,6 +35,7 @@ class IconController extends Controller
             $icon->image = $imagePath;
         }
         $icon->url = $request->input('url');
+        $icon->status = $request->input('status');
         $icon->save();
         return redirect()->route('admin.icon');
     }
@@ -61,6 +62,7 @@ class IconController extends Controller
             $icon->image = $imagePath;
         }
         $icon->url = $request->input('url');
+        $icon->status = $request->input('status');
         $icon->save();
         return redirect()->route('admin.icon');
     }

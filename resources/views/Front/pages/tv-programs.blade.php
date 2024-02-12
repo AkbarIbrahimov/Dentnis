@@ -1,7 +1,4 @@
 @extends('Front.Layouts.front')
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
 @section('content')
     <div class="all">
         <div class="under-nav">
@@ -20,7 +17,7 @@
 
         <div class="container-article">
             <div class="all-article">
-               @foreach($tvPrograms as $tvProgram)
+               @foreach($tvPrograms->where('status','active') as $tvProgram)
                     <div class="card" style="width: 18rem;">
                         <iframe width="400" height="228" src="{{$tvProgram->url}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         <div class="video-title">

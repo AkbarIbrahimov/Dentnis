@@ -25,7 +25,7 @@
                                     <div class="form-group">
                                         <label for="{{$lang}}-name">Name</label>
                                         <input type="text" placeholder="Başlıq" name="{{$lang}}[name]"
-                                               value="{{old($lang.'title', isset($model) ? $model->translateOrDefault($lang)->title : '')}}"
+                                               value="{{old("$lang.name", isset($model) ? $model->translateOrDefault($lang)->title : '')}}"
                                                class="form-control" id="{{$lang}}-name">
                                         @error("$lang.name")
                                         <span class="text-danger">{{$message}}</span>
@@ -33,7 +33,7 @@
                                         @enderror
                                         <label for="{{$lang}}-slug">Slug</label>
                                         <input type="text" placeholder="Slug" name="{{$lang}}[slug]"
-                                               value="{{old($lang.'slug', isset($model) ? $model->translateOrDefault($lang)->title : '')}}"
+                                               value="{{old("$lang.slug", isset($model) ? $model->translateOrDefault($lang)->title : '')}}"
                                                class="form-control" id="{{$lang}}-slug">
                                         @error("$lang.slug")
                                         <span class="text-danger">{{$message}}</span>
@@ -47,7 +47,7 @@
                     </div>
                 </div>
             </div>
-            <button type="submit">Create</button>
+            <button type="submit" onclick="this.disabled=true;this.form.submit();">Create Category</button>
         </form>
     </div>
     <!-- Include Bootstrap JS and Popper.js (required for Bootstrap) -->

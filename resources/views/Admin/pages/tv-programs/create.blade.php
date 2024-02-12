@@ -5,16 +5,21 @@
         <form action="{{route('admin.TvProgramsCreate')}}" method="post" enctype="multipart/form-data">
             @csrf
             <label for="title">Title:</label>
-            <input class="form-control" type="text" id="title" name="title">
+            <input class="form-control" type="text" id="title" name="title" value="{{old('title')}}">
             @error('title')
             <span class="text-danger">{{$message}}</span>
             @enderror
             <label for="url">Url:</label>
-            <input class="form-control" type="text" id="url" name="url">
+            <input class="form-control" type="text" id="url" name="url" value="{{old('url')}}">
             @error('url')
             <span class="text-danger">{{$message}}</span>
             @enderror
-            <button type="submit">Create</button>
+            <label for="status">Status:</label>
+                <select class="form-select" id="status" name="status">
+                    <option value="active" {{ old('status') == 'active' ? 'selected' : '' }}>Active</option>
+                    <option value="inactive" {{ old('status') == 'inactive' ? 'selected' : '' }}>Inactive</option>
+                </select>
+            <button type="submit" onclick="this.disabled=true;this.form.submit();">Create TvPrograms</button>
         </form>
     </div>
     <!-- Include Bootstrap JS and Popper.js (required for Bootstrap) -->

@@ -14,6 +14,7 @@
                 <th>Id</th>
                 <th>Title</th>
                 <th>Url</th>
+                <th>Status</th>
                 <th>Start_date</th>
                 <th>Delete</th>
             </tr>
@@ -25,13 +26,20 @@
                         <td>{{$tvProgram->id}}</td>
                         <td>{{Str::limit($tvProgram->title,20)}}</td>
                         <td>{{Str::limit($tvProgram->url,100)}}</td>
+                        <td>{{$tvProgram->status}}</td>
                         <td>{{$tvProgram->created_at ? $tvProgram->created_at->format('Y/m/d') : ''}}</td>
-                        <td><a href="{{route('admin.tvProgramDelete',['id'=>$tvProgram->id])}}"><i class="fa-duotone fa-trash"></i></a></td>
+                        <td><a href="{{route('admin.tvProgramDelete',['id'=>$tvProgram->id])}}" onclick="return confirmDelete();"
+                            ><i class="fa-duotone fa-trash"></i></a></td>
                     </tr>
             @endforeach
             </tbody>
         </table>
     </div>
+    <script>
+        function confirmDelete() {
+            return confirm("Bu TvProgram yazısını silmək istədiyinizə əminsiniz?");
+        }
+    </script>
 @endsection
 @push('js')
     <script src="{{asset('assets/admin/js/main.js')}}"></script>

@@ -1,7 +1,7 @@
 @extends('Admin.layouts.admin')
 @section('content')
     <div class="container">
-        <h2>Edit Team</h2>
+        <h2>Edit AboutMenu</h2>
         <form action="{{route('admin.aboutMenuEdit',['id'=>$aboutMenu->id])}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="btn">
@@ -44,7 +44,7 @@
             @error('slug')
             <span class="text-danger">{{$message}}</span>
             @enderror
-            <button type="submit">Create</button>
+            <button type="submit" onclick="this.disabled=true;this.form.submit();">Edit AboutMenu</button>
         </form>
     </div>
     <!-- Include Bootstrap JS and Popper.js (required for Bootstrap) -->

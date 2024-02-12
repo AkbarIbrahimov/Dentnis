@@ -33,6 +33,7 @@ class TvProgramsController extends Controller
         $tvProgram = new TvProgram();
         $tvProgram->title = $request->input('title');
         $tvProgram->url = $request->input('url');
+        $tvProgram->status = $request->input('status');
         $tvProgram->save();
         return redirect()->route('admin.tvPrograms');
     }
@@ -53,6 +54,7 @@ class TvProgramsController extends Controller
         $tvProgram = TvProgram::findOrFail($id);
         $tvProgram->title = $request->input('title');
         $tvProgram->url = $request->input('url');
+        $tvProgram->status = $request->input('status');
         $tvProgram->save();
         return redirect()->route('admin.tvPrograms');
     }

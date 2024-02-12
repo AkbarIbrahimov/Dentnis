@@ -24,7 +24,11 @@ class LanguageController extends Controller
 
     public function languageCreate(Request $request)
     {
-        $language=new Language();
+        $validatedData = $request->validate([
+            'itemImg' => 'required|image',
+            'lang' => 'required|string',
+        ]);
+        $language=new Language($validatedData);
         $language->lang=$request->input('lang');
         if ($request->hasFile('itemImg')) {
             $imagePath = Storage::disk('public')->putFile("languages", $request->file('itemImg'));
@@ -53,6 +57,11 @@ class LanguageController extends Controller
 
     public function languageUpdate(Request $request, $id)
     {
+
+       $request->validate([
+            'itemImg' => 'unable|image',
+            'lang' => 'required|string',
+        ]);
         $language=Language::findOrFail($id);
         $language->lang=$request->input('lang');
         if ($request->hasFile('itemImg')) {

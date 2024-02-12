@@ -3,9 +3,6 @@
     <div id="appointments" class="table-container">
         <div class="head">
             <h3>Contact</h3>
-            <form action="{{route('admin.showContactFormCreate')}}" method="get">
-                <button>Add Contact</button>
-            </form>
         </div>
         <table class="table table-striped">
             <thead>
@@ -34,12 +31,17 @@
                     <td>{{$contact->message}}</td>
                     <td>{{$contact->kvkk_accepted}}</td>
                     <td>{{$contact->created_at ? $contact->created_at->format('Y/m/d') : ''}}</td>
-                    <td><a href="{{route('admin.contactFormDelete',['id'=>$contact->id])}}"><i class="fa-duotone fa-trash"></i></a></td>
+                    <td><a href="{{route('admin.contactFormDelete',['id'=>$contact->id])}}"  onclick="return confirmDelete();"><i class="fa-duotone fa-trash"></i></a></td>
                 </tr>
             @endforeach
             </tbody>
         </table>
     </div>
+    <script>
+        function confirmDelete() {
+            return confirm("Bu contact yazısını silmək istədiyinizə əminsiniz?");
+        }
+    </script>
 @endsection
 @push('js')
     <script src="{{asset('assets/admin/js/main.js')}}"></script>

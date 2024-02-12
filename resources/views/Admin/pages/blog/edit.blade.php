@@ -12,7 +12,7 @@
                             <option value="{{$category->id}}" {{$blogs->category_id == $category->id ? 'selected' : ''}}>{{$translation->name}}</option>
                         @endforeach
                     @endforeach
-                    <option value="4">Hakkimizda</option>
+                    <option value="4" {{$blogs->category_id ==4 ? 'selected' : ''}}>Hakkimizda</option>
                 </select>
             </div>
             <div class="btn">
@@ -65,7 +65,7 @@
             @error('itemSlug')
             <span class="text-danger">{{$message}}</span>
             @enderror
-            <button type="submit">Create</button>
+            <button type="submit" onclick="this.disabled=true;this.form.submit();">Edit Blog</button>
         </form>
     </div>
     <!-- Include Bootstrap JS and Popper.js (required for Bootstrap) -->

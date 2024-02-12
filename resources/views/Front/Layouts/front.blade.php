@@ -11,7 +11,7 @@
     @include('Front.partials.bottom')
     <div class="sosialMedia">
         <ul>
-            @foreach($icons as $icon)
+            @foreach($icons->where('status','active') as $icon)
                 <li><a href="{{$icon->url}}"><img src="{{asset("storage/$icon->image")}}" alt=""></a></li>
 
             @endforeach

@@ -5,12 +5,12 @@
         <form action="{{route('admin.sliderCreate')}}" method="post" enctype="multipart/form-data">
             @csrf
             <label for="name">Name:</label>
-            <input class="form-control" type="text" id="name" name="name">
+            <input class="form-control" type="text" id="name" name="name" value="{{old('name')}}">
             @error('name')
             <span class="text-danger">{{$message}}</span>
             @enderror
             <label for="url">Url:</label>
-            <input class="form-control" type="text" id="url" name="url">
+            <input class="form-control" type="text" id="url" name="url" value="{{old('url')}}">
             @error('url')
             <span class="text-danger">{{$message}}</span>
             @enderror
@@ -22,11 +22,11 @@
             <div class="quote-status">
                 <label for="Status">Status:</label>
                 <select class="form-select" id="Status" name="status">
-                    <option value="active">Active</option>
-                    <option value="inactive">Inactive</option>
+                    <option value="active" {{ old('status') == 'active' ? 'selected' : '' }}>Active</option>
+                    <option value="inactive" {{ old('status') == 'inactive' ? 'selected' : '' }}>Inactive</option>
                 </select>
             </div>
-            <button type="submit">Create</button>
+            <button type="submit"  onclick="this.disabled=true;this.form.submit();">Create Slider</button>
         </form>
     </div>
     <!-- Include Bootstrap JS and Popper.js (required for Bootstrap) -->

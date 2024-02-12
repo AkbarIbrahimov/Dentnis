@@ -14,7 +14,12 @@
             @error('url')
             <span class="text-danger">{{$message}}</span>
             @enderror
-            <button type="submit">Create</button>
+            <label for="status">Status:</label>
+            <select class="form-select" id="status" name="status">
+                <option value="active" {{$icon->status == 'active' ? 'selected' : ''}}>Active</option>
+                <option value="inactive" {{$icon->status == 'inactive' ? 'selected' : ''}}>Inactive</option>
+            </select>
+            <button type="submit" onclick="this.disabled=true;this.form.submit();">Edit Icon</button>
         </form>
     </div>
     <!-- Include Bootstrap JS and Popper.js (required for Bootstrap) -->

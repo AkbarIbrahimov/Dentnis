@@ -27,13 +27,20 @@
                     <td><img src="{{asset("storage/$sponsor->image")}}" alt="image{{$sponsor->id}}"></td>
                     <td>{{$sponsor->status}}</td>
                     <td>{{$sponsor->created_at ? $sponsor->created_at->format('Y/m/d') : ''}}</td>
-                    <td ><a href="{{route('admin.sponsorDelete',['id'=>$sponsor->id])}}"><i
+                    <td ><a href="{{route('admin.sponsorDelete',['id'=>$sponsor->id])}}" onclick="return confirmDelete();"
+                        ><i
                                 class="fa-duotone fa-trash"></i></a></td>
                 </tr>
             @endforeach
             </tbody>
         </table>
     </div>
+
+    <script>
+        function confirmDelete() {
+            return confirm("Bu Sponsor yazısını silmək istədiyinizə əminsiniz?");
+        }
+    </script>
 @endsection
 @push('js')
     <script src="{{asset('assets/admin/js/main.js')}}"></script>

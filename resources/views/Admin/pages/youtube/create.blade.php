@@ -9,7 +9,28 @@
             @error('url')
             <span class="text-danger">{{$message}}</span>
             @enderror
-            <button type="submit">Create</button>
+            <label for="status">Status:</label>
+            @php
+                $youtubes = \App\Models\Youtubes::get();
+                $activeCount = 0;
+            @endphp
+
+            @foreach ($youtubes as $youtube)
+                @if ($youtube->status === 'active')
+                    @php
+                        $activeCount++;
+                    @endphp
+                @endif
+            @endforeach
+
+            <select class="form-select" id="status" name="status">
+                @if ($activeCount === 1)
+                @else
+                    <option value="active">Active</option>
+                @endif
+                <option value="inactive">Inactive</option>
+            </select>
+            <button type="submit" onclick="this.disabled=true;this.form.submit();">Create Youtube</button>
         </form>
     </div>
     <!-- Include Bootstrap JS and Popper.js (required for Bootstrap) -->

@@ -110,7 +110,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/tvProgramsCreate', [App\Http\Controllers\Admin\TvPrograms\TvProgramsController::class, 'TvProgramsCreate'])->name('admin.TvProgramsCreate');
     Route::get('/tvProgramDelete{id}', [\App\Http\Controllers\Admin\TvPrograms\TvProgramsController::class, 'tvProgramDelete'])->name('admin.tvProgramDelete');
     Route::get('/tvProgramEdit{id}', [\App\Http\Controllers\Admin\TvPrograms\TvProgramsController::class, 'tvProgramEditView'])->name('admin.showTvProgramEdit');
-    Route::post('/editAboutUs{id}', [App\Http\Controllers\Admin\TvPrograms\TvProgramsController::class, 'tvProgramUpdate'])->name('admin.TvProgramEdit');
+    Route::post('/tvProgramEdit{id}', [App\Http\Controllers\Admin\TvPrograms\TvProgramsController::class, 'tvProgramUpdate'])->name('admin.TvProgramEdit');
 
 });
 // Admin dashboard Doctor-Image page
@@ -153,8 +153,7 @@ Route::group(['middleware' => ['auth']], function () {
 // Admin dashboard Contact-Form page
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/contactForm', [\App\Http\Controllers\Admin\Contact\ContactFormController::class,'contactForm'])->name('admin.contactForm');
-    Route::get('/contactFormCreate', [App\Http\Controllers\Admin\Contact\ContactFormController::class, 'showContactFormCreate'])->name('admin.showContactFormCreate');
-    Route::post('/contactFormCreate', [App\Http\Controllers\Admin\Contact\ContactFormController::class, 'contactFormCreate'])->name('admin.contactFormCreate');
+    Route::get('/contactFormCreate', [App\Http\Controllers\Admin\Contact\ContactFormController::class, 'contactFormCreate'])->name('admin.contactFormCreate');
     Route::get('/contactFormDelete{id}', [\App\Http\Controllers\Admin\Contact\ContactFormController::class, 'contactFormDelete'])->name('admin.contactFormDelete');
     Route::get('/contactFormEdit{id}', [\App\Http\Controllers\Admin\Contact\ContactFormController::class, 'contactFormEditView'])->name('admin.showContactFormEdit');
     Route::post('/editContactForm{id}', [App\Http\Controllers\Admin\Contact\ContactFormController::class, 'contactFormUpdate'])->name('admin.contactFormEdit');

@@ -13,7 +13,7 @@
                     <option value="inactive" {{ $sponsor->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
                 </select>
             </div>
-            <button type="submit">Create</button>
+            <button type="submit" onclick="this.disabled=true;this.form.submit();">Edit Sponsor</button>
         </form>
     </div>
     <!-- Include Bootstrap JS and Popper.js (required for Bootstrap) -->

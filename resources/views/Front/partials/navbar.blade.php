@@ -19,7 +19,7 @@
                 @foreach($categories as $category)
                     <li>
                         @if($categoryTranslation = $category->translations->where('language_id', $languageId)->first())
-                            <a href="{{ url($categoryTranslation->slug ?? '') }}">
+                            <a href="{{-- url($categoryTranslation->slug ?? '') --}}">
                                 <span>{{$categoryTranslation->name}}</span>
                             </a>
                         @else
@@ -43,7 +43,7 @@
                                 Hakkimizda
                             @elseif($languageId==2)
                                 AboutUs
-                            @elseif($languageId==3)
+                            @elseif ($languageId==3)
                                 О нас
                             @endif
                         </span>
@@ -58,9 +58,9 @@
                             </li>
                         @endforeach
                         @if($headDoctor)
-                                <li>
-                                    <a href="{{route('front.headDoctor')}}">Dr.Abulkadir Nadir</a>
-                                </li>
+                            <li>
+                                <a href="{{route('front.headDoctor')}}">Dr.Abulkadir Nadir</a>
+                            </li>
                         @endif
                         <li>
                             <a href=""></a>
@@ -86,18 +86,21 @@
                              id="{{ $language->lang }}">
                     </a>
                 @endforeach
-                <div id="iconContainer"><i class="fa-duotone fa-bars iconElement" id="iconNav"></i></div>
+                <div id="iconContainer"><i class="fa-regular fa-bars iconElement" style="color: #f415cb"
+                                           id="iconNav"></i></div>
                 <div class="iconMenu" hidden>
                     <div class="sidebar" id="sidebar">
-                        <span class="closeMenu"><i class="fa-duotone fa-circle-xmark"></i></span>
+                        <span class="closeMenu">x</span>
                         @foreach($categories as $category)
                             @if($categoryTranslation = $category->translations->where('language_id', $languageId)->first())
 
                                 <div class="category">
-                                    <a href="{{ url($categoryTranslation->slug ?? '') }}">
-                                        <span>{{$categoryTranslation->name}}</span>
-                                    </a>
-                                    <span class="toggle">+</span>
+                                    <div class="plus">
+                                        <a href="{{ url($categoryTranslation->slug ?? '') }}">
+                                            <span>{{$categoryTranslation->name}}</span>
+                                        </a>
+                                        <span class="toggle">+</span>
+                                    </div>
 
                                     <ul>
                                         @foreach($category->blogs as $blog)
@@ -114,7 +117,8 @@
                         @endforeach
                         <div class="category">
 
-                            <a href="{{--route('front.about')--}}">
+                            <div class="plus">
+                                <a href="{{route('front.about')}}">
                         <span>
                             @if($languageId==1)
                                 Hakkimizda
@@ -124,8 +128,9 @@
                                 О нас
                             @endif
                         </span>
-                            </a>
-                            <span class="toggle">+</span>
+                                </a>
+                                <span class="toggle">+</span>
+                            </div>
 
                             <ul>
                                 @foreach($blogs->where('category_id',4) as $blog)
@@ -160,8 +165,15 @@
 </div>
 <div class="header head2" hidden>
     <div class="input-container">
-        <form action="{{route('front.search')}}" method="get">
-            <input type="search" id="form1" name="search" class="form-control" placeholder="Search..."
+        <form action="{{route('front.search')}}" method="get" class="searchInput">
+            <i class="fa-solid fa-magnifying-glass" style="color: #c7c7c7;"></i>
+            <input type="search" id="form1" name="search" class="searchInput1" @if($languageId==1)
+                placeholder="Arama..."
+                   @elseif($languageId==2)
+                       placeholder="Search..."
+                   @elseif($languageId==3)
+                       placeholder="Поиск..."
+                   @endif
                    aria-label="Search"/>
         </form>
         <span class="search2"><i class="fa-duotone fa-circle-xmark"></i></span>

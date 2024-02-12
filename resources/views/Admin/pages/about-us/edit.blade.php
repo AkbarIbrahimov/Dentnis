@@ -1,7 +1,7 @@
 @extends('Admin.layouts.admin')
 @section('content')
     <div class="container">
-        <h2>Edit Team</h2>
+        <h2>Edit AboutUs</h2>
         <form action="{{route('admin.aboutUsEdit',['id'=>$aboutUs->id])}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="btn">
@@ -40,7 +40,7 @@
                     </div>
                 </div>
             </div>
-            <button type="submit">Create</button>
+            <button type="submit" onclick="this.disabled=true;this.form.submit();">Edit AboutUs</button>
         </form>
     </div>
     <!-- Include Bootstrap JS and Popper.js (required for Bootstrap) -->

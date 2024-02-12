@@ -24,12 +24,18 @@
                     <td>{{$doctorImage->id}}</td>
                     <td><img src="{{asset("storage/$doctorImage->image")}}" alt="image{{$doctorImage->id}}"></td>
                     <td>{{$doctorImage->created_at ? $doctorImage->created_at->format('Y/m/d') : ''}}</td>
-                    <td><a href="{{route('admin.DoctorImageDelete',['id'=>$doctorImage->id])}}"><i class="fa-duotone fa-trash"></i></a></td>
+                    <td><a href="{{route('admin.DoctorImageDelete',['id'=>$doctorImage->id])}}" onclick="return confirmDelete();"
+                        ><i class="fa-duotone fa-trash"></i></a></td>
                 </tr>
             @endforeach
             </tbody>
         </table>
     </div>
+    <script>
+        function confirmDelete() {
+            return confirm("Bu bloq yazısını silmək istədiyinizə əminsiniz?");
+        }
+    </script>
 @endsection
 @push('js')
     <script src="{{asset('assets/admin/js/main.js')}}"></script>

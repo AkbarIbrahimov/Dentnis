@@ -2,7 +2,7 @@
 @section('content')
     <div id="appointments" class="table-container">
         <div class="head">
-            <h3>Blog</h3>
+            <h3>Category</h3>
             <form action="{{route('admin.showCategoryCreate')}}" method="get">
                 <button>Add Category</button>
             </form>
@@ -27,13 +27,18 @@
                         <td>{{$translation->name}}</td>
                         <td>{{$translation->slug}}</td>
                         <td>{{$category->created_at ? $category->created_at->format('Y/m/d') : ''}}</td>
-                        <td style="text-align: center"><a href="{{route('admin.categoryDelete',['id'=>$category->id])}}"><i class="fa-duotone fa-trash"></i></a></td>
+                        <td style="text-align: center"><a href="{{route('admin.categoryDelete',['id'=>$category->id])}}" onclick="return confirmDelete();"><i class="fa-duotone fa-trash"></i></a></td>
                     </tr>
                 @endforeach
             @endforeach
             </tbody>
         </table>
     </div>
+    <script>
+        function confirmDelete() {
+            return confirm("Bu Category yazısını silmək istədiyinizə əminsiniz?");
+        }
+    </script>
 @endsection
 @push('js')
     <script src="{{asset('assets/admin/js/main.js')}}"></script>

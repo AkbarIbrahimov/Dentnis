@@ -2,7 +2,7 @@
 @section('content')
     <div class="head">
         <h2 >Admins</h2>
-        <a href="{{route('admin.adminCreate')}}"><button>Add Admin</button></a>
+{{--        <a href="{{route('admin.adminCreate')}}"><button>Add Admin</button></a>--}}
     </div>
     <div id="appointments" class="table-container">
         @foreach($userprofile as $user)

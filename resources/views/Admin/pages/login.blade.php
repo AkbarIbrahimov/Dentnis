@@ -99,14 +99,8 @@
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
 
-        <div class="remember-me">
-            <input type="checkbox" id="rememberMe" name="rememberMe">
-            <label for="rememberMe">Remember Me</label>
-        </div>
-
         <button type="submit">Login</button>
         </form>
-        <a href="#" class="forgot-password">Forgot your password?</a>
     </div>
 </div>
 </body>

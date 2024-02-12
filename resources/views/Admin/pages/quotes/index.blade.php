@@ -32,13 +32,18 @@
                         <td>{{$translation->title}}</td>
                         <td>{{Str::limit($translation->description,40)}}</td>
                         <td>{{$quote->created_at ? $quote->created_at->format('Y/m/d') : ''}}</td>
-                        <td style="text-align: center"><a href="{{route('admin.quoteDelete',['id'=>$quote->id])}}"><i class="fa-duotone fa-trash"></i></a></td>
+                        <td style="text-align: center"><a href="{{route('admin.quoteDelete',['id'=>$quote->id])}}" onclick="return confirmDelete();"><i class="fa-duotone fa-trash"></i></a></td>
                     </tr>
                 @endforeach
             @endforeach
             </tbody>
         </table>
     </div>
+    <script>
+        function confirmDelete() {
+            return confirm("Bu Quotes yazısını silmək istədiyinizə əminsiniz?");
+        }
+    </script>
 @endsection
 @push('js')
     <script src="{{asset('assets/admin/js/main.js')}}"></script>

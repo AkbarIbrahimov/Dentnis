@@ -24,6 +24,7 @@ class YoutubeController extends Controller
     {
         $youtube=new Youtubes();
         $youtube->url=$request->input('url');
+        $youtube->status = $request->input('status');
         $youtube->save();
         return redirect()->route('admin.youtube');
     }
@@ -49,6 +50,7 @@ class YoutubeController extends Controller
     {
         $youtube=Youtubes::findOrFail($id);
         $youtube->url=$request->input('url');
+        $youtube->status = $request->input('status');
         $youtube->save();
         return redirect()->route('admin.youtube');
     }

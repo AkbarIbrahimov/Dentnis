@@ -30,7 +30,7 @@ function prevImage() {
     showImage(currentIndex);
 }
 
-setInterval(nextImage, 3000); // Resimler her 3 saniyede bir değişecek.
+setInterval(nextImage, 3000);
 
 
 var swiper = new Swiper(".mySwiper.my", {
@@ -63,10 +63,10 @@ var swiper = new Swiper(".mySwiper.my", {
 var swiper = new Swiper(".mySwiper.my2", {
     slidesPerView: 1,
     spaceBetween: 10,
-    slidesPerGroup: 4,
+    slidesPerGroup: 1,
     speed: 1000,
     autoplay: {
-        delay: 2000, // 1 saniye
+        delay: 2000,
     },
     loop: true,
     pagination: {

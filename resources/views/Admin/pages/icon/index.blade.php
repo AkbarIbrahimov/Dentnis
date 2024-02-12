@@ -14,6 +14,7 @@
                 <th>Id</th>
                 <th>Image</th>
                 <th>Url</th>
+                <th>Status</th>
                 <th>Start_date</th>
                 <th>Delete</th>
             </tr>
@@ -25,13 +26,21 @@
                     <td>{{$icon->id}}</td>
                     <td><img src="{{asset("storage/$icon->image")}}" alt="image{{$icon->id}}"></td>
                     <td>{{$icon->url}}</td>
+                    <td>{{$icon->status}}</td>
                     <td>{{$icon->created_at ? $icon->created_at->format('Y/m/d') : ''}}</td>
-                    <td><a href="{{route('admin.iconDelete',['id'=>$icon->id])}}"><i class="fa-duotone fa-trash"></i></a></td>
+                    <td><a href="{{route('admin.iconDelete',['id'=>$icon->id])}}" onclick="return confirmDelete();"
+                        ><i class="fa-duotone fa-trash"></i></a></td>
                 </tr>
             @endforeach
             </tbody>
         </table>
     </div>
+
+    <script>
+        function confirmDelete() {
+            return confirm("Bu Icon yazısını silmək istədiyinizə əminsiniz?");
+        }
+    </script>
 @endsection
 @push('js')
     <script src="{{asset('assets/admin/js/main.js')}}"></script>

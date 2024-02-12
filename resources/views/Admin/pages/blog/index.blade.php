@@ -27,21 +27,33 @@
                     <tr class="language-{{$translation->language_id}}">
                         <td style="text-align: center"><a href="{{route('admin.showBlogEdit',['id'=>$blog->id])}}"><i class="fa-duotone fa-pen-nib"></i></a></td>
                         <td>{{$blog->id}}</td>
-                        @foreach($blog->category->where('language_id',1) as $category)
-                            <td>{{$category->name}}</td>
-                        @endforeach
+                        <td>
+                            @php
+                                $category = $blog->category->where('language_id', 1)->first();
+                            @endphp
+                            @if ($category && $category->name !== null)
+                                {{$category->name}}
+                            @else
+                                Hakkımızda
+                            @endif
+                        </td>
                         <td><img src="{{asset("storage/$blog->image")}}" alt="image{{$blog->id}}"></td>
                         <td>{{$blog->slug}}</td>
                         <td>{{$translation->title}}</td>
                         <td>{{Str::limit($translation->description,40)}}</td>
                         <td>{{$blog->created_at ? $blog->created_at->format('Y/m/d') : ''}}</td>
-                        <td style="text-align: center"><a href="{{route('admin.blogDelete',['id'=>$blog->id])}}"><i class="fa-duotone fa-trash"></i></a></td>
+                        <td style="text-align: center"><a href="{{route('admin.blogDelete',['id'=>$blog->id])}}" onclick="return confirmDelete();"><i class="fa-duotone fa-trash"></i></a></td>
                     </tr>
                 @endforeach
             @endforeach
             </tbody>
         </table>
     </div>
+    <script>
+        function confirmDelete() {
+            return confirm("Bu bloq yazısını silmək istədiyinizə əminsiniz?");
+        }
+    </script>
 @endsection
 @push('js')
     <script src="{{asset('assets/admin/js/main.js')}}"></script>

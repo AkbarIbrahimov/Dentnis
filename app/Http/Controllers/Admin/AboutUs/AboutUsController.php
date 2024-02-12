@@ -76,7 +76,7 @@ class AboutUsController extends Controller
         $defaultLanguage = config('app.locale');
 
         $request->validate([
-            "$defaultLanguage.description" => 'required|string|max:255',
+            "$defaultLanguage.description" => 'required|string',
         ]);
 
         $aboutUs = AboutUs::findOrFail($id);

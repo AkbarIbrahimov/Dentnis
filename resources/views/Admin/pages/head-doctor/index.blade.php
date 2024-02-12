@@ -3,9 +3,9 @@
     <div id="appointments" class="table-container">
         <div class="head">
             <h3>HeadDoctor</h3>
-            <form action="{{route('admin.showHeadDoctorCreate')}}" method="get">
-                <button>Add HeadDoctor</button>
-            </form>
+{{--            <form action="{{route('admin.showHeadDoctorCreate')}}" method="get">--}}
+{{--                <button>Add HeadDoctor</button>--}}
+{{--            </form>--}}
         </div>
         <table class="table table-striped">
             <thead>
@@ -14,7 +14,7 @@
                 <th>Id</th>
                 <th>Description</th>
                 <th>Start_date</th>
-                <th>Delete</th>
+{{--                <th>Delete</th>--}}
             </tr>
             </thead>
             <tbody id="blogTableBody">
@@ -25,13 +25,19 @@
                         <td>{{$head->id}}</td>
                         <td>{{Str::limit($translation->description,100)}}</td>
                         <td>{{$head->created_at ? $head->created_at->format('Y/m/d') : ''}}</td>
-                        <td><a href="{{route('admin.HeadDoctorDelete',['id'=>$head->id])}}"><i class="fa-duotone fa-trash"></i></a></td>
+{{--                        <td><a href="{{route('admin.HeadDoctorDelete',['id'=>$head->id])}}" onclick="return confirmDelete();"--}}
+{{--                            ><i class="fa-duotone fa-trash"></i></a></td>--}}
                     </tr>
                 @endforeach
             @endforeach
             </tbody>
         </table>
     </div>
+    <script>
+        function confirmDelete() {
+            return confirm("Bu bloq yazısını silmək istədiyinizə əminsiniz?");
+        }
+    </script>
 @endsection
 @push('js')
     <script src="{{asset('assets/admin/js/main.js')}}"></script>

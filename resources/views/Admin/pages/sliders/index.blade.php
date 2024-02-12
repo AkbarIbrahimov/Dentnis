@@ -31,12 +31,17 @@
                     <td><img src="{{asset("storage/$slider->image")}}" alt="image{{$slider->id}}"></td>
                     <td>{{$slider->status}}</td>
                     <td>{{$slider->created_at ? $slider->created_at->format('Y/m/d') : ''}}</td>
-                    <td><a href="{{route('admin.sliderDelete',['id'=>$slider->id])}}"><i
+                    <td><a href="{{route('admin.sliderDelete',['id'=>$slider->id])}}" onclick="return confirmDelete();"><i
                                 class="fa-duotone fa-trash"></i></a></td>
                 </tr>
             @endforeach
             </tbody>
         </table>
+        <script>
+            function confirmDelete() {
+                return confirm("Bu slider yazısını silmək istədiyinizə əminsiniz?");
+            }
+        </script>
     </div>
 @endsection
 @push('js')

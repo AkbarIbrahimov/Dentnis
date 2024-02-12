@@ -25,7 +25,7 @@
                                     <div class="form-group">
                                         <label for="summernote">Description</label>
                                         <textarea type="text" placeholder="Description" name="{{$lang}}[description]"
-                                                  class="form-control summernote" id="summernote">{{old($lang.'text', isset($model) ? $model->translateOrDefault($lang)->descriprtion : '')}}</textarea>
+                                                  class="form-control summernote" id="summernote">{{old("$lang.description", isset($model) ? $model->translateOrDefault($lang)->descriprtion : '')}}</textarea>
 
                                         @error("$lang.description")
                                         <span class="text-danger">{{$message}}</span>
@@ -38,7 +38,7 @@
                     </div>
                 </div>
             </div>
-            <button type="submit">Create</button>
+            <button type="submit" onclick="this.disabled=true;this.form.submit();">Create HeadDoctor</button>
         </form>
     </div>
     <!-- Include Bootstrap JS and Popper.js (required for Bootstrap) -->

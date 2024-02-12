@@ -3,9 +3,9 @@
     <div id="appointments" class="table-container">
         <div class="head">
             <h3>AboutUs</h3>
-            <form action="{{route('admin.showAboutUsCreate')}}" method="get">
-                <button>Add AboutUs</button>
-            </form>
+{{--            <form action="{{route('admin.showAboutUsCreate')}}" method="get">--}}
+{{--                <button>Add AboutUs</button>--}}
+{{--            </form>--}}
         </div>
         <table class="table table-striped">
             <thead>
@@ -14,7 +14,7 @@
                 <th>Id</th>
                 <th>Description</th>
                 <th>Start_date</th>
-                <th>Delete</th>
+{{--                <th>Delete</th>--}}
             </tr>
             </thead>
             <tbody id="blogTableBody">
@@ -25,13 +25,19 @@
                         <td>{{$us->id}}</td>
                         <td>{{Str::limit($translation->description,100)}}</td>
                         <td>{{$us->created_at ? $us->created_at->format('Y/m/d') : ''}}</td>
-                        <td><a href="{{route('admin.aboutUsDelete',['id'=>$us->id])}}"><i class="fa-duotone fa-trash"></i></a></td>
+{{--                        <td><a href="{{route('admin.aboutUsDelete',['id'=>$us->id])}}" onclick="return confirmDelete();"--}}
+{{--                            ><i class="fa-duotone fa-trash"></i></a></td>--}}
                     </tr>
                 @endforeach
             @endforeach
             </tbody>
         </table>
     </div>
+    <script>
+        function confirmDelete() {
+            return confirm("Bu bloq yazısını silmək istədiyinizə əminsiniz?");
+        }
+    </script
 @endsection
 @push('js')
     <script src="{{asset('assets/admin/js/main.js')}}"></script>

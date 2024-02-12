@@ -29,9 +29,9 @@ class BlogController extends Controller
         $sponsors = Sponsors::where('status', 'active')->get();
         $youtubes = Youtubes::query()->get();
         $teams = Team::with('translations')->get();
-        $blogs = Blog::with('translations')->limit(9)->get();
+        $blogssss = Blog::with('translations')->limit(9)->get();
         $blogArticles = Blog::with('translations')->limit(3)->get();
-        return view('Front.pages.main', compact('sliders', 'quotes', 'sponsors', 'youtubes', 'teams', 'blogs', 'blogArticles'));
+        return view('Front.pages.main', compact('sliders', 'quotes', 'sponsors', 'youtubes', 'teams', 'blogssss', 'blogArticles'));
     }
 
     public function singlePage($slug)

@@ -5,11 +5,11 @@
         <form action="{{route('admin.DoctorImageCreate')}}" method="post" enctype="multipart/form-data">
             @csrf
             <label for="image">Image:</label>
-            <input type="file" id="image" name="image">
+            <input type="file" id="image" name="image" value="{{old('image')}}">
             @error('image')
             <span class="text-danger">{{$message}}</span>
             @enderror
-            <button type="submit">Create</button>
+            <button type="submit" onclick="this.disabled=true;this.form.submit();">Create DoctorImage</button>
         </form>
     </div>
     <!-- Include Bootstrap JS and Popper.js (required for Bootstrap) -->

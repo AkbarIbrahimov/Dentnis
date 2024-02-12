@@ -1,18 +1,27 @@
 @extends('Front.Layouts.front')
 
 @section('content')
+    @php
+        $currentLocale = session()->get('locale');
+
+        if ($currentLocale === null) {
+            $currentLocale = 'tr';
+        }
+        $language=\App\Models\Language::where('lang',$currentLocale)->first();
+        $langId=$language->id;
+    @endphp
     <div class="all">
         <div class="navall" >
             <div class="subhover">
-                <h1 class="title" style="font-size: 16px">{{$aboutMenu->translations->first()->title}}</h1>
+                <h1 class="title" style="font-size: 16px">{{$aboutMenu->translations->where('language_id',$langId)->first()->title}}</h1>
                 <a href="{{route('front.index')}}" style="font-size: 16px; color: white; margin-right:20px;text-decoration: none">AnaSayfa</a>
                 <span style="font-size: 16px;margin-right:15px ">></span>
-                <span style="font-size: 16px">{{$aboutMenu->translations->first()->title}}</span>
+                <span style="font-size: 16px">{{$aboutMenu->translations->where('language_id',$langId)->first()->title}}</span>
             </div>
         </div>
         <div class="wraparrall">
             <div class="wrapperall ">
-{!! $aboutUs->translations->first()->description !!}
+{!! $aboutUs->translations->where('language_id',$langId)->first()->description !!}
 
             </div>
 
@@ -25,7 +34,9 @@
             </swiper-container>
             <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
         </div>
-
+        <div class="iframe">
+            <iframe src="https://www.youtube.com/embed/GkXLn7nbYxs" frameborder="0" width="100%" height="400"></iframe>
+        </div>
     </div>
         @endsection
 

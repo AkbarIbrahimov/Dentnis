@@ -27,7 +27,7 @@
                                     <div class="form-group">
                                         <label for="{{$lang}}-title">Title</label>
                                         <input type="text" placeholder="Başlıq" name="{{$lang}}[title]"
-                                               value="{{old($lang.'text', isset($model) ? $model->translateOrDefault($lang)->title : '')}}"
+                                               value="{{old("$lang.title", isset($model) ? $model->translateOrDefault($lang)->title : '')}}"
                                                class="form-control" id="{{$lang}}-title">
                                         @error("$lang.title")
                                         <span class="text-danger">{{$message}}</span>
@@ -36,7 +36,7 @@
 
                                         <label for="{{$lang}}-title">Description</label>
                                         <input type="text" placeholder="Başlıq" name="{{$lang}}[description]"
-                                               value="{{old($lang.'description', isset($model) ? $model->translateOrDefault($lang)->description : '')}}"
+                                               value="{{old("$lang.description", isset($model) ? $model->translateOrDefault($lang)->description : '')}}"
                                                class="form-control" id="{{$lang}}-title">
                                         @error("$lang.description")
                                         <span class="text-danger">{{$message}}</span>
@@ -77,10 +77,8 @@
                     @endif
                     <option value="inactive">Inactive</option>
                 </select>
-            @error('itemSlug')
-            <span class="text-danger">{{$message}}</span>
-            @enderror
-            <button type="submit">Create</button>
+            </div>
+            <button type="submit" onclick="this.disabled=true;this.form.submit();">Create Quotes</button>
         </form>
     </div>
     <!-- Include Bootstrap JS and Popper.js (required for Bootstrap) -->

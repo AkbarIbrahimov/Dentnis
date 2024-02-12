@@ -5,7 +5,7 @@
         <form action="{{route('admin.languageCreate')}}" method="post" enctype="multipart/form-data">
             @csrf
             <label for="lang">Lang:</label>
-            <input class="form-control" type="text" id="lang" name="lang" >
+            <input class="form-control" type="text" id="lang" name="lang" value="{{old('lang')}}">
             @error('lang')
             <span class="text-danger">{{$message}}</span>
             @enderror
@@ -14,7 +14,7 @@
             @error('itemImg')
             <span class="text-danger">{{$message}}</span>
             @enderror
-            <button type="submit">Create</button>
+            <button type="submit" onclick="this.disabled=true;this.form.submit();">Create Language</button>
         </form>
     </div>
     <!-- Include Bootstrap JS and Popper.js (required for Bootstrap) -->

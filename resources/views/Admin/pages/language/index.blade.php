@@ -25,11 +25,17 @@
                 <td>{{$language->lang}}</td>
                 <td><img src="{{asset("storage/$language->image")}}" alt="image{{$language->id}}"></td>
                 <td>{{$language->created_at?$language->created_at->format('Y/m/d'):''}}</td>
-                <td ><a href="{{route('admin.languageDelete',['id'=>$language->id])}}"><i class="fa-duotone fa-trash"></i></a></td>
+                <td ><a href="{{route('admin.languageDelete',['id'=>$language->id])}}" onclick="return confirmDelete();"><i class="fa-duotone fa-trash"></i></a></td>
                 </tbody>
             @endforeach
 
         </table>
     </div>
+    <script>
+        function confirmDelete() {
+            return confirm("Bu Language yazısını silmək istədiyinizə əminsiniz?");
+        }
+    </script>
+
 
 @endsection

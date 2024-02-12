@@ -16,32 +16,6 @@ class ContactFormController extends Controller
         return view('Admin/pages/contact/index', compact('contacts'));
     }
 
-    public function showContactFormCreate()
-    {
-        return view('Admin/pages/contact/create');
-    }
-
-    public function contactFormCreate(Request $request)
-    {
-        $request->validate([
-            'fName' => 'required|',
-            'message' => 'required|',
-            'title' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required|numeric',
-        ]);
-
-        $contact = new ContactForm();
-
-        $contact->firstname = $request->input('fName');
-        $contact->message = $request->input('message');
-        $contact->title = $request->input('title');
-        $contact->email = $request->input('email');
-        $contact->phone = $request->input('phone');
-        $contact->kvkk_accepted = $request->input('accept') ? true : false;
-        $contact->save();
-        return redirect()->route('admin.contactForm');
-    }
 
     public function contactFormEditView($id)
     {
