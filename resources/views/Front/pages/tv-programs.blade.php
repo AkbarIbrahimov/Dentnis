@@ -19,7 +19,7 @@
             <div class="all-article">
                @foreach($tvPrograms->where('status','active') as $tvProgram)
                     <div class="card" style="width: 18rem;">
-                        <iframe width="400" height="228" src="{{$tvProgram->url}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe class="iframe" width="400" height="228" src="{{$tvProgram->url}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         <div class="video-title">
                             <b> {{$tvProgram->title}} </b>
                         </div>

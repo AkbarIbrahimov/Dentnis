@@ -161,8 +161,14 @@
         }
 
     }
+    .single-page
+    .others-section
+    .cols
+     div{ width: 100%;
+    }
     .single-page .others-section .cols {
-        width: 1797px;
+        /*width: 1797px;*/
+
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -170,7 +176,6 @@
     }
 
     .single-page .others-section .cols div {
-        width: calc(31% - 20px);
         margin: 0 10px;
         border: 1px solid #d9d9d9;
         background-color: #ffffff;

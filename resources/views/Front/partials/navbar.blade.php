@@ -90,7 +90,7 @@
                                            id="iconNav"></i></div>
                 <div class="iconMenu" hidden>
                     <div class="sidebar" id="sidebar">
-                        <span class="closeMenu">x</span>
+                        <span class="closeMenu"><i class="fa-light fa-x"></i></span>
                         @foreach($categories as $category)
                             @if($categoryTranslation = $category->translations->where('language_id', $languageId)->first())
 
@@ -176,6 +176,6 @@
                    @endif
                    aria-label="Search"/>
         </form>
-        <span class="search2"><i class="fa-duotone fa-circle-xmark"></i></span>
+        <span class="search2"><i class="fa-light fa-x"></i></span>
     </div>
 </div>

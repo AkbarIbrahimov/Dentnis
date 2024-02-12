@@ -761,6 +761,7 @@ body {
     right: 10px;
     transform: translateY(-50%);
     cursor: pointer;
+    margin-right: 70px;
 }
 
 #iconNav {
@@ -772,7 +773,6 @@ body {
         width: 100%;
         margin-right: 0;
     }
-
     #iconNav {
         display: block;
     }

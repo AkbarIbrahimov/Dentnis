@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 .under-nav {
     height: 128px;
     width: 100%;
@@ -13,6 +14,7 @@
     padding: 30px 0;
     color: white;
 }
+
 .under-nav .content {
     display: flex;
     flex-direction: column;
@@ -48,6 +50,7 @@
 .container-article .video-title b {
     font-size: 16px;
 }
+
 @media only screen and (max-width: 768px) {
     .under-nav {
         height: auto;
@@ -70,6 +73,10 @@
     .container-article .video-title b {
         font-size: 14px;
     }
+    iframe.iframe{
+        width: 100%;
+        height: 300px;
+    }
 }
 
 @media only screen and (max-width: 480px) {
@@ -81,6 +88,7 @@
         font-size: 16px;
     }
 
+
     .under-nav .content .bottom-title .bottom-left,
     .under-nav .content .bottom-title .bottom-right {
         padding: 0 5px;
@@ -89,4 +97,7 @@
     .container-article .video-title b {
         font-size: 12px;
     }
+
 }
+
+

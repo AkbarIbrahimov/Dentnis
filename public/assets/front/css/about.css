@@ -70,7 +70,6 @@
     .navall {
         padding: 15px 0;
     }
-
     .wraparrall {
         flex-direction: column;
     }
@@ -82,6 +81,23 @@
     .iframe {
         padding-left: 20px;
         padding-right: 20px;
+    }
+    .all{
+        swiper-container{
+            position: absolute;
+            width: 313px;
+            height: 310px;
+            margin-left: 146px;
+        }
+    }
+    .all
+    .wrapperall{
+        margin-top: 350px;
+        margin-left: 30px;
+    }
+    .all
+    .iframe{
+        padding: 0;
     }
 }
 
