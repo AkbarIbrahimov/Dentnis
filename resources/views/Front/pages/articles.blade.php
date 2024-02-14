@@ -1,27 +1,42 @@
 @extends('Front.Layouts.front')
 @section('content')
+    @php
+        $currentLocale = session()->get('locale');
+
+        if ($currentLocale === null) {
+            $currentLocale = 'tr';
+        }
+        $language=\App\Models\Language::where('lang',$currentLocale)->first();
+        $languageId=$language->id;
+    @endphp
+
     <div class="all">
         <div class="under-nav">
             <div class="content">
                 <div class="top-title">
-                    Makaleler
+                    @if($languageId==1)
+                        Makaleler
+                    @elseif($languageId==2)
+                        Articles
+                    @elseif($languageId==3)
+                        Статьи
+                    @endif
                 </div>
                 <div class="bottom-title">
                     <div class="bottom-left"><a href="{{route('front.index')}}">Anasayfa</a></div>
                     <div class="icon"> ></div>
-                    <div class="bottom-right"><a href="">Makaleler</a></div>
+                    <div class="bottom-right"><a href="">
+                            @if($languageId==1)
+                                Makaleler
+                            @elseif($languageId==2)
+                                Articles
+                            @elseif($languageId==3)
+                                Статьи
+                            @endif
+                        </a></div>
                 </div>
             </div>
         </div>
-        @php
-            $currentLocale = session()->get('locale');
-
-            if ($currentLocale === null) {
-                $currentLocale = 'tr';
-            }
-            $language=\App\Models\Language::where('lang',$currentLocale)->first();
-            $languageId=$language->id;
-        @endphp
 
         <div class="container-article">
             <div class="all-article">
@@ -33,7 +48,15 @@
                             @foreach($blog->translations->where('language_id',$languageId) as $translation)
                             <h3 class="card-title">{{$translation->title}}</h3>
                             <p class="card-text"><span>{{ Str::limit($translation->mini_description,255) }}</span></p>
-                            <a href="#" class="btn btn-primary">Devamını Oku</a>
+                            <a href="#" class="btn btn-primary">
+                                @if($languageId==1)
+                                    Devamını Oku
+                                @elseif($languageId==2)
+                                    Read more
+                                @elseif($languageId==3)
+                                    Читать далее
+                                @endif
+                                </a>
                             @endforeach
                         </div>
                     </div>

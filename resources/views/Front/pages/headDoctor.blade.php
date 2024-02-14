@@ -1,6 +1,15 @@
 @extends('Front.Layouts.front')
 
 @section('content')
+    @php
+        $currentLocale = session()->get('locale');
+
+        if ($currentLocale === null) {
+            $currentLocale = 'tr';
+        }
+        $language=\App\Models\Language::where('lang',$currentLocale)->first();
+        $languageId=$language->id;
+    @endphp
     <div class="all">
         <div class="navall" >
             <div class="subhover">
@@ -13,7 +22,7 @@
         <div class="wraparrall">
             <div class="wrapperall ">
 
-                {!! $headDoctor->translations->first()->description !!}
+                {!! $headDoctor->translations->where('language_id',$languageId)->first()->description !!}
 
             </div>
             <swiper-container class="mySwiper" navigation="true" pagination="true" keyboard="true" mousewheel="true"
