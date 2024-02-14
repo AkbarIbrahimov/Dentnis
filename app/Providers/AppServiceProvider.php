@@ -12,6 +12,7 @@ use App\Models\Icon;
 use App\Models\Language;
 use App\Models\Setting;
 use App\Models\TvProgram;
+use App\Models\Youtubes;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -44,7 +45,8 @@ class AppServiceProvider extends ServiceProvider
             $icons=Icon::query()->get();
             $settings=Setting::query()->first();
             $headDoctor=HeadDoctor::with(['translations'])->first();
-            return $view->with(compact('categories','languageIcon','blogs','aboutMenu','aboutUs','tvPrograms','doctorImages','icons','settings','headDoctor'));
+            $youtubeAbout=Youtubes::query()->where('status','active')->first();
+            return $view->with(compact('categories','languageIcon','blogs','aboutMenu','aboutUs','tvPrograms','doctorImages','icons','settings','headDoctor','youtubeAbout'));
         });
     }
 }

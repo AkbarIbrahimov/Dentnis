@@ -122,15 +122,17 @@
         </h2>
         <div class="container1">
             @foreach($blogssss as $blog)
-                <a href="{{route('front.singlePage',['slug'=>$blog->slug])}}" class="blogs">
-                    <div class="image-container">
-                        <img src="{{asset("storage/$blog->image")}}" alt="Image{{$blog->id}}"
-                             style="width: 100%; height: 100%;">
-                        <div class="image-overlay"></div>
-                        <div class="image-title">{{$blog->translations->where('language_id',$languageId)->first()->title}}</div>
-                        <div class="underline"></div>
-                    </div>
-                </a>
+                @if($blog->category_id!=4)
+                    <a href="{{route('front.singlePage',['slug'=>$blog->slug])}}" class="blogs">
+                        <div class="image-container">
+                            <img src="{{asset("storage/$blog->image")}}" alt="Image{{$blog->id}}"
+                                 style="width: 100%; height: 100%;">
+                            <div class="image-overlay"></div>
+                            <div class="image-title">{{$blog->translations->where('language_id',$languageId)->first()->title}}</div>
+                            <div class="underline"></div>
+                        </div>
+                    </a>
+                @endif
             @endforeach
 
         </div>
@@ -147,6 +149,7 @@
             @endif</h2>
         <div class="container1 articles1">
             @foreach($blogArticles as $article)
+                @if($article->category_id!=4)
                 <div class="col">
                     <div class="image">
                         <a href="{{route('front.singlePage',['slug'=>$article->slug])}}">
@@ -154,16 +157,16 @@
                                 src="{{asset("storage/$article->image")}}"
                                 alt="article image {{$article->id}}">
                         </a>
-
                     </div>
                     <div class="content">
                         <h2>{{$article->translations->where('language_id',$languageId)->first()->title}}</h2>
-                        <p>{{Str::limit($article->translations->where('language_id',$languageId)->first()->description,100)}}</p>
+                        <p>{{Str::limit($article->translations->where('language_id',$languageId)->first()->mini_description,255)}}</p>
                         <a href="{{route('front.singlePage',['slug'=>$article->slug])}}">
                             <button>Devamını oku</button>
                         </a>
                     </div>
                 </div>
+                @endif
             @endforeach
         </div>
     </div>

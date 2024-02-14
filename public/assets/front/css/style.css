@@ -71,8 +71,9 @@ body {
                         /*display: none;*/
                         transition: max-height 0.3s ease;
                         position: absolute;
-                        top: 75px;
-                        min-width: auto;
+                        top: 61px;
+                        left: 0;
+                        min-width: 100%;
                         z-index: 999;
 
                         > li {
@@ -105,7 +106,7 @@ body {
 
                 > li:hover ul {
                     max-height: 500px;
-                    width: 100%;
+                    width: auto;
                     position: absolute;
                     left: 0;
 
@@ -216,6 +217,7 @@ body {
         margin-bottom: 40px;
         font-family: "Quicksand", sans-serif;
         font-weight: 500;
+        margin-left: 100px
     }
 
     > div {
@@ -448,8 +450,6 @@ body {
                     font-weight: 100;
                     color: #333;
                     height: 60px;
-                    overflow: scroll;
-                    overflow-x: hidden;
                 }
 
                 > a {
@@ -718,7 +718,6 @@ body {
             float: left;
             width: 33%;
             text-align: left;
-            border-bottom: 0 !important;
         }
     }
 
@@ -879,11 +878,10 @@ body {
     }
 
     .closeMenu {
-        margin-bottom: 70px;
+        margin: 10px 10px 62px 62px;
         display: flex;
         justify-content: end;
         color: white;
-        font-size: 700;
     }
 }
 
@@ -994,19 +992,34 @@ body {
     > ul li {
         padding: 10px 0;
     }
+    .footerMain
+    .upper{
+        display: flex;
+        flex-direction: column;
+    }
 
     .footerMain
     .logo-part {
         padding: 0;
+        text-align: center;
+        border-bottom: 1px solid;
     }
-
+    .footerMain
+    .titles-part
+    p{
+        display: inline-block;
+        float: left;
+        width: 100%;
+        text-align: left;
+        border-bottom: 1px solid gray;
+    }
     .footerMain
     .bottom-footer {
         height: 100%;
     }
 
     .category ul li {
-        margin-top: 10px;
+        margin-top: 40px;
     }
 
     .articles

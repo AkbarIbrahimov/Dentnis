@@ -8,6 +8,7 @@
 
 .single-page {
     width: 100%;
+    overflow-x: hidden;
 
     .top {
         width: 100%;
@@ -212,6 +213,10 @@
     .container {
         width: 100%;
         margin: 0;
+        margin-top: 100px;
+        p{
+            width: 550px;
+        }
     }
 
     .single-page
@@ -228,5 +233,16 @@
         font-family: Quicksand, serif;
         color: #FFFFFF;
         text-align: center;
+    }
+}
+@media screen and (max-width: 550px) {
+    .single-page
+    .container {
+        width: 100%;
+        margin: 0;
+        margin-top: 100px;
+        p{
+            width: 320px;
+        }
     }
 }

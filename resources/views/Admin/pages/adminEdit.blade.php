@@ -1,30 +1,35 @@
 @extends('Admin.layouts.admin')
 @section('content')
     <div class="container">
-        <h2>Create Tv-Program</h2>
-        <form action="{{route('admin.adminCreate')}}" method="post" enctype="multipart/form-data">
+        <h2>Edit Setting</h2>
+        <form action="{{route('admin.settingEdit',['id'=>$setting->id])}}" method="post" enctype="multipart/form-data">
             @csrf
-            <label for="name">Name:</label>
-            <input class="form-control" type="text" id="name" name="name" value="{{old('name')}}">
-            @error('name')
+            <label for="topLogo">TopLogo:</label>
+            <input type="file" id="topLogo" name="topLogo" value="{{$setting->top_logo}}">
+            @error('topLogo')
             <span class="text-danger">{{$message}}</span>
             @enderror
-            <label for="email">Email:</label>
-            <input class="form-control" type="email" id="email" name="email" value="{{old('email')}}">
-            @error('email')
+            <label for="bottomLogo">BottomLogo:</label>
+            <input type="file" id="bottomLogo" name="bottomLogo" value="{{$setting->bottom_logo}}">
+            @error('bottomLogo')
             <span class="text-danger">{{$message}}</span>
             @enderror
-            <label for="image">Image:</label>
-            <input type="file" id="image" name="image" value="{{old('image')}}">
-            @error('image')
+            <label for="address">Adsress:</label>
+            <input class="form-control" type="text" id="address" name="address" value="{{$setting->address}}">
+            @error('address')
             <span class="text-danger">{{$message}}</span>
             @enderror
-            <label for="password">Password:</label>
-            <input class="form-control" type="text" id="password" name="password" value="{{old('password')}}">
-            @error('password')
+            <label for="mail">Mail:</label>
+            <input class="form-control" type="email" id="mail" name="mail" value="{{$setting->mail}}">
+            @error('mail')
             <span class="text-danger">{{$message}}</span>
             @enderror
-            <button type="submit" onclick="this.disabled=true;this.form.submit();">Create Admin</button>
+            <label for="phone">Phone:</label>
+            <input class="form-control" type="text" id="phone" name="phone" value="{{$setting->phone}}">
+            @error('phone')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+            <button type="submit" onclick="this.disabled=true;this.form.submit();">Edit Setting</button>
         </form>
     </div>
     <!-- Include Bootstrap JS and Popper.js (required for Bootstrap) -->
@@ -50,7 +55,3 @@
 @push('css')
     <link rel="stylesheet" href="{{asset('assets/admin/css/add.css')}}">
 @endpush
-@push('js')
-    <script src="{{asset('assets/admin/js/add.js')}}"></script>
-@endpush
-

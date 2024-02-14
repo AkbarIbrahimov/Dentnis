@@ -100,9 +100,9 @@ class BlogController extends Controller
             });
         }
 
-        $blogs = $blogQuery;
-        $matchedBlogsCount = $blogs->count();
-        return view('Front.pages.search', compact('searchTerm', 'blogQuery','matchedBlogsCount'));
+        $blogsSearch = $blogQuery->get();
+        $matchedBlogsCount = $blogsSearch->count();
+        return view('Front.pages.search', compact('searchTerm', 'blogsSearch','matchedBlogsCount'));
     }
 
 }

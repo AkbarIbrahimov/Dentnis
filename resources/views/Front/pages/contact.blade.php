@@ -5,12 +5,12 @@
         <div class="subheader">
             <div class="container">
                 <div class="columnOne">
-                        <h1>İletisim</h1>
-                        <ul>
-                            <li><a href="">Anasayfa</a></li>
-                            <span><i class="fa-solid fa-angle-right"></i></span>
-                            <li><a href="">İletisim</a></li>
-                        </ul>
+                    <h1>İletisim</h1>
+                    <ul>
+                        <li><a href="{{route('front.index')}}">Anasayfa</a></li>
+                        <span><i class="fa-solid fa-angle-right"></i></span>
+                        <li><a href="">İletisim</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -20,14 +20,30 @@
                     @csrf
                     <div class="flex">
                         <input class="form-control" type="text" name="fName" placeholder="Ad, Soyad">
+                        @error('fName')
+                        <span style="color: red">Ad,Soyad yeri boş qoyula bilməz</span>
+                        @enderror
                         <input class="form-control" type="number" name="phone" placeholder="Phone">
+                        @error('phone')
+                        <span style="color: red">Phone yeri boş qoyula bilməz</span>
+                        @enderror
                     </div>
                     <input class="form-control" type="email" name="email" placeholder="Email">
+                    @error('email')
+                    <span style="color: red">Email yeri boş qoyula bilməz</span>
+                    @enderror
                     <input class="form-control" type="text" name="title" placeholder="Konu">
+                    @error('title')
+                    <span style="color: red">Title yeri boş qoyula bilməz</span>
+                    @enderror
                     <textarea class="form-control" cols="40" rows="5" name="message" placeholder="Mesaj"></textarea>
+                    @error('message')
+                    <span style="color: red">Message yeri boş qoyula bilməz</span>
+                    <br>
+                    @enderror
                     <label for="">
                         <input type="checkbox" name="accept">
-                        <a href=""> KVKK</a>'yı okudum, kabul ediyorum.
+                        <a href="https://www.kvkk.gov.tr" target="_blank"> KVKK</a>'yı okudum, kabul ediyorum.
                     </label>
                     <button>Gönder</button>
                     <p style="color: green">{{$correct}}</p>
@@ -36,27 +52,30 @@
 
             </div>
             <div class="row2">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d16491.755351405183!2d49.86224668359764!3d40.38313033265291!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1saz!2saz!4v1705053966399!5m2!1saz!2saz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d16491.755351405183!2d49.86224668359764!3d40.38313033265291!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1saz!2saz!4v1705053966399!5m2!1saz!2saz"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
         <div class="section2">
             <div class="row1">
                 <h3>İletişim Bilgileri</h3>
-                <p> <strong>Adres:</strong> {{$settings->address}} </p>
-                <p> <strong>Telefon:</strong> <a href="">{{$settings->phone}}</a> </p>
-                <p> <strong>Mail:</strong> <a href="">{{$settings->mail}}</a> </p>
-                <p> <strong>instagram:</strong> <a href="">@doktornarin</a> </p>
+                <p><strong>Adres:</strong> {{$settings->address}} </p>
+                <p><strong>Telefon:</strong> <a href="">{{$settings->phone}}</a></p>
+                <p><strong>Mail:</strong> <a href="">{{$settings->mail}}</a></p>
+                <p><strong>instagram:</strong> <a href="">@doktornarin</a></p>
             </div>
             <span>
 
             <div class="row2">
             </span>
-                <h3>Çalışma Saatleri</h3>
-                <p><strong>Pazartesi – Cumartesi:</strong> 08.30 – 19.00<br>
-                    <strong>Pazar:</strong> Kapalı
-                </p>
-            </div>
+            <h3>Çalışma Saatleri</h3>
+            <p><strong>Pazartesi – Cumartesi:</strong> 08.30 – 19.00<br>
+                <strong>Pazar:</strong> Kapalı
+            </p>
         </div>
+    </div>
 
 
     </div>

@@ -7,7 +7,7 @@
                     Makaleler
                 </div>
                 <div class="bottom-title">
-                    <div class="bottom-left"><a href="">Anasayfa</a></div>
+                    <div class="bottom-left"><a href="{{route('front.index')}}">Anasayfa</a></div>
                     <div class="icon"> ></div>
                     <div class="bottom-right"><a href="">Makaleler</a></div>
                 </div>
@@ -26,16 +26,18 @@
         <div class="container-article">
             <div class="all-article">
                 @foreach($blogs as $blog)
+                    @if($blog->category_id!=4)
                     <div class="card" style="width: 18rem;">
                         <img src="{{asset("storage/$blog->image")}}" class="card-img-top" alt="...">
                         <div class="card-body">
                             @foreach($blog->translations->where('language_id',$languageId) as $translation)
                             <h3 class="card-title">{{$translation->title}}</h3>
-                            <p class="card-text"><span>{{ Str::limit($translation->description,100) }}</span></p>
+                            <p class="card-text"><span>{{ Str::limit($translation->mini_description,255) }}</span></p>
                             <a href="#" class="btn btn-primary">Devamını Oku</a>
                             @endforeach
                         </div>
                     </div>
+                    @endif
                 @endforeach
 
             </div>

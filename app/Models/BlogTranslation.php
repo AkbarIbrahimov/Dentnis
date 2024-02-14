@@ -9,7 +9,7 @@ class BlogTranslation extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'blog_id','language_id','title','description'
+        'blog_id','language_id','title','description','mini_description'
     ];
     public function language()
     {

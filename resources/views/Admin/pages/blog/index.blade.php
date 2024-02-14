@@ -17,6 +17,7 @@
                 <th>Slug</th>
                 <th>Title</th>
                 <th>Description</th>
+                <th>Mini_Description</th>
                 <th>Start_date</th>
                 <th>Delete</th>
             </tr>
@@ -41,6 +42,7 @@
                         <td>{{$blog->slug}}</td>
                         <td>{{$translation->title}}</td>
                         <td>{{Str::limit($translation->description,40)}}</td>
+                        <td>{{Str::limit($translation->mini_description,40)}}</td>
                         <td>{{$blog->created_at ? $blog->created_at->format('Y/m/d') : ''}}</td>
                         <td style="text-align: center"><a href="{{route('admin.blogDelete',['id'=>$blog->id])}}" onclick="return confirmDelete();"><i class="fa-duotone fa-trash"></i></a></td>
                     </tr>

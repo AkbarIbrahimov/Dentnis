@@ -54,12 +54,14 @@ class BlogController extends Controller
         $request->validate([
             "$defaultLanguage.title" => 'required|string|max:255',
             "$defaultLanguage.description" => 'required|string',
+            "$defaultLanguage.miniDescription" => 'required|string|max:255',
             'itemImg' => 'required|image',
             'itemSlug' => 'required|string',
         ]);
 
         $defaultTitle = $request->input("$defaultLanguage.title");
         $defaultDescription = $request->input("$defaultLanguage.description");
+        $defaultMiniDescription = $request->input("$defaultLanguage.miniDescription");
 
         $blog = new Blog();
         $blog->category_id = $request->input('category_id');
@@ -77,17 +79,20 @@ class BlogController extends Controller
             'language_id' => $defaultLangId,
             'title' => $defaultTitle,
             'description' => $defaultDescription,
+            'mini_description' => $defaultMiniDescription,
         ]);
 
         foreach (config('app.languages') as $lang) {
             if ($lang != $defaultLanguage) {
                 $title = $request->input("$lang.title");
                 $description = $request->input("$lang.description");
+                $miniDescription = $request->input("$lang.miniDescription");
 
                 if (!empty($title) || !empty($description)) {
                     $request->validate([
                         "$lang.title" => 'string|max:255',
                         "$lang.description" => 'string',
+                        "$lang.miniDescription" => 'string|max:255',
                     ]);
 
                     $languageModel = Language::where('lang', $lang)->first();
@@ -98,6 +103,8 @@ class BlogController extends Controller
                         'language_id' => $langId,
                         'title' => $title,
                         'description' => $description,
+                        'mini_description' => $miniDescription,
+
                     ]);
                 }
             }
@@ -122,6 +129,7 @@ class BlogController extends Controller
         $request->validate([
             "$defaultLanguage.title" => 'required|string|max:255',
             "$defaultLanguage.description" => 'required|string',
+            "$defaultLanguage.miniDescription" => 'required|string|max:255',
             'itemImg' => 'nullable|image',
             'itemSlug' => 'required|string',
         ]);
@@ -143,15 +151,17 @@ class BlogController extends Controller
         $defaultLangId = $defaultLanguageModel->id;
         $title = $request->input("$defaultLanguage.title");
         $description = $request->input("$defaultLanguage.description");
+        $miniDescription = $request->input("$defaultLanguage.miniDescription");
         $blogTranslation = BlogTranslation::updateOrCreate(
             ['blog_id' => $blog->id, 'language_id' => $defaultLangId],
-            ['title' => $title, 'description' => $description]
+            ['title' => $title, 'description' => $description,'mini_description'=>$miniDescription]
         );
 
         foreach (config('app.languages') as $lang) {
             if ($lang != $defaultLanguage) {
                 $title = $request->input("$lang.title");
                 $description = $request->input("$lang.description");
+                $miniDescription = $request->input("$lang.miniDescription");
 
                 if (!empty($title) || !empty($description)) {
                     $languageModel = Language::where('lang', $lang)->firstOrFail();
@@ -159,7 +169,7 @@ class BlogController extends Controller
 
                     BlogTranslation::updateOrCreate(
                         ['blog_id' => $blog->id, 'language_id' => $langId],
-                        ['title' => $title, 'description' => $description]
+                        ['title' => $title, 'description' => $description,'mini_description'=>$miniDescription]
                     );
                 } else {
                     $languageModel = Language::where('lang', $lang)->firstOrFail();

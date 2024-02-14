@@ -18,7 +18,7 @@
                 Есть ли у вас проблемы с эстетической стоматологией?
             @endif
         </h2>
-        <a href="{{route('front.about')}}">
+        <a href="{{route('front.contact')}}">
             @if($languageId==1)
                 Bize ulaşın
             @elseif($languageId==2)

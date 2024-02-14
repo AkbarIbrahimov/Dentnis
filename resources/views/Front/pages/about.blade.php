@@ -35,7 +35,7 @@
             <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
         </div>
         <div class="iframe">
-            <iframe src="https://www.youtube.com/embed/GkXLn7nbYxs" frameborder="0" width="100%" height="400"></iframe>
+            <iframe src="{{$youtubeAbout->url}}" frameborder="0" width="100%" height="400"></iframe>
         </div>
     </div>
         @endsection

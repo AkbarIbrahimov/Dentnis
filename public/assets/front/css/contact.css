@@ -1,5 +1,12 @@
 .contact {
     height: auto;
+    .columnOne{
+        ul{
+            li{
+                list-style-type: none;
+            }
+        }
+    }
     .subheader {
         background: url(../images/purple-background.png);
         background-repeat: no-repeat !important;
@@ -84,7 +91,7 @@
                    margin-bottom: 40px;
                }
                >textarea{
-                   width: 100%;
+                   width: 646px;
                    margin-bottom: 40px;
                }
                >button{
@@ -195,11 +202,16 @@
     .contact .section1 .row1 > form > input,
     .contact .section1 .row1 > form > textarea,
     .contact .section1 .row1 > form > button {
-        width: 100%;
     }
 
     .contact .section2 > span {
         width: 100%;
+    }
+    .contact
+    .section1
+    .row1
+    > form{
+        margin-left: 50px;
     }
 }
 

@@ -51,6 +51,12 @@
                                     @error("$lang.description")
                                     <span class="text-danger">{{$message}}</span>
                                     <br>
+                                    @enderror<label for="miniDescription">MiniDescription</label>
+                                    <textarea type="text" placeholder="MiniDescription..." name="{{$lang}}[miniDescription]"
+                                              class="form-control" id="miniDescription">{{old("$lang.miniDescription", isset($model) ? $model->translateOrDefault($lang)->mini_description : '')}}</textarea>
+                                    @error("$lang.miniDescription")
+                                    <span class="text-danger">{{$message}}</span>
+                                    <br>
                                     @enderror
                                 </div>
                             </div>

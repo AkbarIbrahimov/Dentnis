@@ -11,6 +11,7 @@ use App\Models\Language;
 use App\Models\Product;
 use App\Models\Quotes;
 use App\Models\QuotesTranslation;
+use App\Models\Setting;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,5 +31,6 @@ class AdminController extends Controller
     {
         return view('Admin.pages.adminAdd');
     }
+
 
 }

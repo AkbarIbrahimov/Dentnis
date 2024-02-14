@@ -7,7 +7,7 @@
                     Tv Programs
                 </div>
                 <div class="bottom-title">
-                    <div class="bottom-left"><a href="">Anasayfa</a></div>
+                    <div class="bottom-left"><a href="{{route('front.index')}}">Anasayfa</a></div>
                     <div class="icon"> ></div>
                     <div class="bottom-right"><a href="">TV-Program</a></div>
                 </div>
