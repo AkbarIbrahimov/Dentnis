@@ -41,8 +41,8 @@
                     <span style="color: red">Message yeri boş qoyula bilməz</span>
                     <br>
                     @enderror
-                    <label for="">
-                        <input type="checkbox" name="accept">
+                    <label for="accept">
+                        <input type="checkbox" name="accept" id="accept">
                         <a href="https://www.kvkk.gov.tr" target="_blank"> KVKK</a>'yı okudum, kabul ediyorum.
                     </label>
                     <button>Gönder</button>

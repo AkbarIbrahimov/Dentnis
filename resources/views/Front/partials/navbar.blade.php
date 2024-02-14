@@ -62,9 +62,6 @@
                                 <a href="{{route('front.headDoctor')}}">Dr.Abulkadir Nadir</a>
                             </li>
                         @endif
-                        <li>
-                            <a href=""></a>
-                        </li>
                     </ul>
                 </li>
                 <li>
