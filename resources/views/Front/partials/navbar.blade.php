@@ -128,7 +128,6 @@
                                 </a>
                                 <span class="toggle">+</span>
                             </div>
-
                             <ul>
                                 @foreach($blogs->where('category_id',4) as $blog)
                                     <li>

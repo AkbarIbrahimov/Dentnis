@@ -48,7 +48,7 @@
                             @foreach($blog->translations->where('language_id',$languageId) as $translation)
                             <h3 class="card-title">{{$translation->title}}</h3>
                             <p class="card-text"><span>{{ Str::limit($translation->mini_description,255) }}</span></p>
-                            <a href="#" class="btn btn-primary">
+                            <a href="{{route('front.singlePage',['slug'=>$blog->slug])}}" class="btn btn-primary">
                                 @if($languageId==1)
                                     Devamını Oku
                                 @elseif($languageId==2)
